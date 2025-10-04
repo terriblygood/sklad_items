@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  service1:
+    build: ./services/service1
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+    networks:
+      - microservices-network
+
+  service2:
+    build: ./services/service2
+    ports:
+      - "5002:5002"
+    environment:
+      - PORT=5002
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
